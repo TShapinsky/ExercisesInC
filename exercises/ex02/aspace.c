@@ -10,6 +10,11 @@ License: GNU GPLv3
 
 int var1;
 
+void printvar(){
+  int var = 2;
+  printf("var at %p\n",&var); //stack grows down
+}
+
 int main ()
 {
     int var2 = 5;
@@ -21,6 +26,13 @@ int main ()
     printf ("Address of var2 is %p\n", &var2);
     printf ("Address of p is %p\n", p);
     printf ("Address of s is %p\n", s);
+    void * c1 = malloc(8); //heap grows up
+    printf ("Address of c1 is %p\n", c1);
+    printvar();
+
+    void * ch1 = malloc(8);
+    void * ch2 = malloc(8);
+    printf("Address diff is %p\n", ch2-ch1);
 
     return 0;
 }
