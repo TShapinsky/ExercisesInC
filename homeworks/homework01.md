@@ -6,6 +6,9 @@
 
 ### Think OS Chapter 1 reading questions
 
+For each of the reading questions below, write answers in the form of
+a clear, concise, complete sentence or two.
+
 1) Give an example of a feature common in interpreted languages that is rare in compiled languages.
 Interpereted languages 
 2) Name two advantages of static typing over dynamic typing.
