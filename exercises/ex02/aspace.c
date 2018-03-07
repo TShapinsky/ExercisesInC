@@ -19,7 +19,7 @@ int main ()
 {
     int var2 = 5;
     void *p = malloc(128);
-    char *s = "Literal string";
+    char *s = "Hello, World";
 
     printf ("Address of main is %p\n", main);
     printf ("Address of var1 is %p\n", &var1);
