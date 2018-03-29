@@ -32,6 +32,7 @@ To make comparison of floating point numbers easier, you just have to compare ma
 4) Following the example in Section 5.3, write the 32-bit binary representation of -13 in single precision IEEE floating-point.  What would you get if you accidentally interpreted this value as an integer?
 
 11000001010100000000000000000000
+
 -1051721728
 
 5) Write a function that takes a string and converts from lower-case to upper-case by flipping the sixth bit.  
