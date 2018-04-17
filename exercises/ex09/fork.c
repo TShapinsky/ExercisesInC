@@ -14,10 +14,15 @@ License: MIT License https://opensource.org/licenses/MIT
 #include <sys/types.h>
 #include <wait.h>
 
+/*
+  For the global and stack variables the memory positions between the parent and children appear identical. However, the heap for the child processes appears offset parent heap. 
+ */
 
 // errno is an external global variable that contains
 // error information
 extern int errno;
+
+char * hello = "hello";
 
 
 // get_seconds returns the number of seconds since the
@@ -34,6 +39,12 @@ void child_code(int i)
 {
     sleep(i);
     printf("Hello from child %d.\n", i);
+}
+
+void print_memory(){
+    void * heap = malloc(sizeof(4));
+    char stack[10];
+    printf("global:%p\nheap:%p\nstack:%p\n",hello,heap,stack);
 }
 
 // main takes two parameters: argc is the number of command-line
@@ -57,6 +68,9 @@ int main(int argc, char *argv[])
     // get the start time
     start = get_seconds();
 
+    printf("Parent\n");
+    print_memory();
+
     for (i=0; i<num_children; i++) {
 
         // create a child process
@@ -73,6 +87,7 @@ int main(int argc, char *argv[])
         /* see if we're the parent or the child */
         if (pid == 0) {
             child_code(i);
+	    print_memory();
             exit(i);
         }
     }
